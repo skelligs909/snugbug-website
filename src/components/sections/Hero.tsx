@@ -116,20 +116,20 @@ function Sun({ visible }: { visible: boolean }) {
       aria-hidden="true"
     >
       {/* Glow */}
-      <div className="absolute inset-0 -m-6 rounded-full bg-yellow-300/30 blur-2xl" />
+      <div className="absolute inset-0 -m-10 rounded-full bg-yellow-300/30 blur-3xl" />
       {/* Sun body */}
-      <div className="h-20 w-20 sm:h-24 sm:w-24 rounded-full bg-gradient-to-br from-yellow-300 via-yellow-400 to-amber-400 shadow-lg shadow-yellow-300/40" />
+      <div className="h-36 w-36 sm:h-44 sm:w-44 rounded-full bg-gradient-to-br from-yellow-300 via-yellow-400 to-amber-400 shadow-lg shadow-yellow-300/40" />
       {/* Rays */}
       <motion.div
-        className="absolute inset-0 -m-3"
+        className="absolute inset-0 -m-5"
         animate={visible ? { rotate: 360 } : {}}
         transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
       >
-        {[...Array(8)].map((_, i) => (
+        {[...Array(10)].map((_, i) => (
           <div
             key={i}
-            className="absolute left-1/2 top-1/2 h-2.5 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-300/50"
-            style={{ transform: `rotate(${i * 45}deg) translateX(48px)` }}
+            className="absolute left-1/2 top-1/2 h-3 w-12 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-300/50"
+            style={{ transform: `rotate(${i * 36}deg) translateX(80px)` }}
           />
         ))}
       </motion.div>
