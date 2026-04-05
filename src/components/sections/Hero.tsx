@@ -362,9 +362,17 @@ export default function Hero() {
           animate="visible"
           className="flex flex-col items-center gap-6"
         >
-          {/* Ladybug mascot */}
-          <motion.div variants={itemVariants}>
+          {/* Ladybug mascot + brand */}
+          <motion.div variants={itemVariants} className="flex flex-col items-center">
             <Ladybug size={140} className="mx-auto mb-2" />
+            <div className="flex items-baseline gap-1.5">
+              <span className="font-heading text-3xl tracking-tight text-snugbug-dark sm:text-4xl">
+                Snug<span className="text-snugbug-red">Bug</span>
+              </span>
+              <span className="font-accent text-xs italic text-snugbug-dark/40">
+                — by Jo Green
+              </span>
+            </div>
           </motion.div>
 
           {/* Headline */}
@@ -381,8 +389,7 @@ export default function Hero() {
             variants={itemVariants}
             className="mx-auto max-w-xl font-body text-lg leading-relaxed text-snugbug-dark/75 sm:text-xl"
           >
-            Gentle, natural cotton nasal inserts designed for children.
-            Comfort they&rsquo;ll barely notice, relief you&rsquo;ll love.
+            Say goodbye to nosebleed hysterics. Tiny cotton inserts that kids actually tolerate &mdash; so you can finally breathe easy too.
           </motion.p>
 
           {/* CTA — Email capture */}

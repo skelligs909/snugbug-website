@@ -6,7 +6,7 @@ import TrustSignals from "@/components/sections/TrustSignals";
 import FounderStory from "@/components/sections/FounderStory";
 import FAQPreview from "@/components/sections/FAQPreview";
 import CTAFooter from "@/components/sections/CTAFooter";
-import CoFounderComments from "@/components/sections/CoFounderComments";
+
 
 export default function Home() {
   return (
@@ -18,7 +18,7 @@ export default function Home() {
       <TrustSignals />
       <FounderStory />
       <FAQPreview />
-      <CoFounderComments />
+
       <CTAFooter />
     </main>
   );

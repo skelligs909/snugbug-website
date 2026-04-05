@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
 import { trackWaitlistSignup } from "@/lib/analytics";
+import Ladybug from "@/components/Ladybug";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -131,8 +132,9 @@ export default function CTAFooter() {
               <span className="font-heading text-2xl text-white tracking-tight">
                 Snug<span className="text-snugbug-red">Bug</span>
               </span>
-              <span className="text-lg" role="img" aria-label="ladybug">
-                🐞
+              <Ladybug size={28} />
+              <span className="font-accent text-xs text-gray-400 italic ml-1 self-end -mb-0.5">
+                by Jo Green
               </span>
             </div>
 
