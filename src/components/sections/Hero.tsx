@@ -365,14 +365,12 @@ export default function Hero() {
           {/* Ladybug mascot + brand */}
           <motion.div variants={itemVariants} className="flex flex-col items-center">
             <Ladybug size={140} className="mx-auto mb-2" />
-            <div className="flex items-baseline gap-1.5">
-              <span className="font-heading text-3xl tracking-tight text-snugbug-dark sm:text-4xl">
-                Snug<span className="text-snugbug-red">Bug</span>
-              </span>
-              <span className="font-accent text-xs italic text-snugbug-dark/40">
-                — by Jo Green
-              </span>
-            </div>
+            <span className="font-heading text-3xl tracking-tight text-snugbug-dark sm:text-4xl">
+              Snug<span className="text-snugbug-red">Bug</span>
+            </span>
+            <span className="font-accent text-xs italic text-snugbug-dark/40 self-end -mt-1">
+              by Jo Green
+            </span>
           </motion.div>
 
           {/* Headline */}
