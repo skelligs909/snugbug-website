@@ -85,10 +85,11 @@ export default function CTAFooter() {
             transition={{ duration: 0.6 }}
           >
             <h2 className="font-heading text-3xl md:text-4xl text-snugbug-dark mb-4">
-              Comfort you can feel. Care you can trust.
+              Join the SnugBug family.
             </h2>
             <p className="font-body text-snugbug-dark/80 mb-8 text-lg">
-              Get 15% off your first order when you sign up.
+              I&rsquo;d love to share what I&rsquo;ve built with your family.
+              Sign up and get 15% off your first order.
             </p>
             {submitted ? (
               <p className="font-accent text-lg font-medium text-snugbug-green">

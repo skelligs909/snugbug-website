@@ -101,15 +101,20 @@ export default function TrustSignals() {
     <Section className="bg-white py-20">
       <Container>
         {/* Testimonials */}
-        <motion.h2
-          className="font-heading text-3xl md:text-4xl text-snugbug-dark text-center mb-12"
+        <motion.div
+          className="text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
         >
-          Loved by Parents Everywhere
-        </motion.h2>
+          <p className="font-body text-snugbug-gray text-lg mb-3">
+            I built SnugBug for my family. Now other families are loving it too.
+          </p>
+          <h2 className="font-heading text-3xl md:text-4xl text-snugbug-dark">
+            What Parents Are Saying
+          </h2>
+        </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {testimonials.map((t, i) => (

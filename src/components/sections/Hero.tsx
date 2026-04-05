@@ -382,12 +382,12 @@ export default function Hero() {
             <span className="text-snugbug-red">little noses</span>
           </motion.h1>
 
-          {/* Subheadline */}
+          {/* Subheadline — founder-led voice */}
           <motion.p
             variants={itemVariants}
             className="mx-auto max-w-xl font-body text-lg leading-relaxed text-snugbug-dark/75 sm:text-xl"
           >
-            Say goodbye to nosebleed hysterics. Tiny cotton inserts that kids actually tolerate &mdash; so you can finally breathe easy too.
+            I created SnugBug after too many 2&nbsp;a.m. nosebleed panics with my own kids. Tiny cotton inserts that children actually tolerate &mdash; from a mom who&rsquo;s been there.
           </motion.p>
 
           {/* CTA — Email capture */}

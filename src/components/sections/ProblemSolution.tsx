@@ -9,7 +9,7 @@ export default function ProblemSolution() {
     <Section>
       <Container>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center py-16 lg:py-24">
-          {/* Problem Side */}
+          {/* Problem Side — Jo's personal experience */}
           <motion.div
             initial={{ opacity: 0, x: -60 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -18,26 +18,27 @@ export default function ProblemSolution() {
             className="bg-white rounded-3xl p-8 lg:p-12 shadow-sm"
           >
             <p className="text-snugbug-red font-accent text-sm uppercase tracking-widest mb-4">
-              Sound familiar?
+              My story
             </p>
             <h2 className="font-heading text-3xl lg:text-4xl text-snugbug-dark leading-tight mb-6">
-              It&rsquo;s 2&nbsp;am. Your child has a nosebleed.{" "}
+              It&rsquo;s 2&nbsp;am. My son has a nosebleed.{" "}
               <span className="text-snugbug-red">Again.</span>
             </h2>
             <div className="space-y-4 font-body text-snugbug-gray text-lg leading-relaxed">
               <p>
-                You fumble for tissues in the dark. They shred apart immediately.
-                Blood on the pillowcase, the pajamas, the sheets. Your little one
-                is scared, you&rsquo;re exhausted, and nothing seems to{" "}
-                <em>actually</em> help.
+                I&rsquo;d fumble for tissues in the dark. They&rsquo;d shred
+                apart immediately. Blood on the pillowcase, the pajamas, the
+                sheets. My little one terrified, me exhausted, and nothing that{" "}
+                <em>actually</em> helped.
               </p>
               <p>
-                You pinch, you tilt, you hold&nbsp;&mdash; but the mess and the
-                worry just keep coming back. Night after night.
+                Pinch, tilt, hold&nbsp;&mdash; the mess and the worry just kept
+                coming back. Night after night. I knew there had to be something
+                better.
               </p>
               <p className="flex items-center gap-2 text-snugbug-red font-accent text-base">
                 <span aria-hidden="true">&#9829;</span>
-                We&rsquo;ve been there too.
+                So I built it myself.
                 <span aria-hidden="true">&#9829;</span>
               </p>
             </div>
@@ -52,25 +53,26 @@ export default function ProblemSolution() {
             className="bg-snugbug-cream rounded-3xl p-8 lg:p-12 shadow-sm"
           >
             <p className="text-snugbug-green font-accent text-sm uppercase tracking-widest mb-4">
-              Meet SnugBug
+              What I created
             </p>
             <h2 className="font-heading text-3xl lg:text-4xl text-snugbug-dark leading-tight mb-6">
-              There&rsquo;s a better way.
+              SnugBug &mdash; born at my kitchen table.
             </h2>
             <div className="space-y-4 font-body text-snugbug-gray text-lg leading-relaxed">
               <p>
-                SnugBug is a soft, child-sized nasal plug made from natural cotton.
-                It gently absorbs and applies light pressure&nbsp;&mdash; the same
-                approach doctors recommend&nbsp;&mdash; so nosebleeds stop faster
-                with zero mess.
+                SnugBug is a soft, child-sized nasal insert made from natural
+                cotton. It gently absorbs and applies light pressure&nbsp;&mdash;
+                the same approach doctors recommend&nbsp;&mdash; so nosebleeds
+                stop faster with zero mess.
               </p>
               <p>
-                No more wads of tissue. No more stained sheets. Just a calm,
-                comfortable solution that lets everyone get back to sleep.
+                I developed it with pediatricians, tested materials after bedtime,
+                and didn&rsquo;t stop until my own kids said it felt okay. No more
+                wads of tissue. No more stained sheets. Just calm.
               </p>
               <p className="flex items-center gap-2 text-snugbug-red font-accent text-base">
                 <span aria-hidden="true">&#9829;</span>
-                Made by parents, for parents.
+                Made by a mom, for parents everywhere.
                 <span aria-hidden="true">&#9829;</span>
               </p>
             </div>

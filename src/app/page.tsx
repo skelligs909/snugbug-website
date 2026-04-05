@@ -13,10 +13,10 @@ export default function Home() {
     <main>
       <Hero />
       <ProblemSolution />
+      <FounderStory />
       <HowItWorks />
       <ProductFeatures />
       <TrustSignals />
-      <FounderStory />
       <FAQPreview />
 
       <CTAFooter />
