@@ -368,7 +368,7 @@ export default function Hero() {
             <span className="font-heading text-3xl tracking-tight text-snugbug-dark sm:text-4xl">
               Snug<span className="text-snugbug-red">Bug</span>
             </span>
-            <span className="font-accent text-xs italic text-snugbug-dark/40 self-end -mt-1">
+            <span className="font-accent text-xs italic text-snugbug-dark/40 self-end mt-1">
               by Jo Green
             </span>
           </motion.div>
