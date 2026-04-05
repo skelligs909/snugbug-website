@@ -1,15 +1,5 @@
 import { NextResponse } from 'next/server';
-import { sql } from '@vercel/postgres';
-
-async function ensureWaitlistTable() {
-  await sql`
-    CREATE TABLE IF NOT EXISTS waitlist (
-      id SERIAL PRIMARY KEY,
-      email VARCHAR(255) UNIQUE NOT NULL,
-      created_at TIMESTAMP WITH TIME ZONE DEFAULT NOW()
-    )
-  `;
-}
+import { ensureWaitlistTable, addWaitlistEmail } from '@/lib/db';
 
 export async function POST(request: Request) {
   try {
@@ -20,7 +10,7 @@ export async function POST(request: Request) {
     }
 
     await ensureWaitlistTable();
-    await sql`INSERT INTO waitlist (email) VALUES (${email}) ON CONFLICT (email) DO NOTHING`;
+    await addWaitlistEmail(email);
 
     return NextResponse.json({ success: true });
   } catch (error) {

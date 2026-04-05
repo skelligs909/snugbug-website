@@ -13,9 +13,9 @@
     "@fontsource-variable/fraunces": "^5.2.9",
     "@fontsource/nunito": "^5.2.7",
     "@stripe/stripe-js": "^9.0.1",
-    "@vercel/postgres": "^0.10.0",
     "framer-motion": "^12.38.0",
     "next": "16.2.2",
+    "pg": "^8.20.0",
     "posthog-js": "^1.364.7",
     "react": "19.2.4",
     "react-dom": "19.2.4",
@@ -24,6 +24,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
+    "@types/pg": "^8.20.0",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
