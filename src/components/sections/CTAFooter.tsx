@@ -1,8 +1,10 @@
 "use client";
 
+import { useState, type FormEvent } from "react";
 import { motion } from "framer-motion";
 import { Section } from "@/components/ui/Section";
 import { Container } from "@/components/ui/Container";
+import { trackWaitlistSignup } from "@/lib/analytics";
 
 const navLinks = [
   { label: "About", href: "/about" },
@@ -37,6 +39,38 @@ function TikTokIcon() {
 }
 
 export default function CTAFooter() {
+  const [email, setEmail] = useState("");
+  const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
+
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
+    e.preventDefault();
+    if (!email) return;
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      trackWaitlistSignup(email);
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
+    } finally {
+      setSubmitting(false);
+    }
+  }
+
   return (
     <Section className="bg-snugbug-dark">
       {/* CTA Block */}
@@ -55,22 +89,35 @@ export default function CTAFooter() {
             <p className="font-body text-snugbug-dark/80 mb-8 text-lg">
               Get 15% off your first order when you sign up.
             </p>
-            <form
-              onSubmit={(e) => e.preventDefault()}
-              className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
-            >
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-full border border-gray-300 font-body text-snugbug-dark placeholder:text-snugbug-gray focus:outline-none focus:ring-2 focus:ring-snugbug-red/40"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 bg-snugbug-red text-white font-accent rounded-full hover:opacity-90 transition-opacity cursor-pointer whitespace-nowrap"
+            {submitted ? (
+              <p className="font-accent text-lg font-medium text-snugbug-green">
+                You&rsquo;re on the list! We&rsquo;ll be in touch soon.
+              </p>
+            ) : (
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto"
               >
-                Sign Up
-              </button>
-            </form>
+                <input
+                  type="email"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="Enter your email"
+                  className="flex-1 px-4 py-3 rounded-full border border-gray-300 font-body text-snugbug-dark placeholder:text-snugbug-gray focus:outline-none focus:ring-2 focus:ring-snugbug-red/40"
+                />
+                <button
+                  type="submit"
+                  disabled={submitting}
+                  className="px-6 py-3 bg-snugbug-red text-white font-accent rounded-full hover:opacity-90 transition-opacity cursor-pointer whitespace-nowrap disabled:opacity-60"
+                >
+                  {submitting ? "Signing up..." : "Sign Up"}
+                </button>
+              </form>
+            )}
+            {error && (
+              <p className="mt-2 font-body text-sm text-red-600">{error}</p>
+            )}
           </motion.div>
         </Container>
       </div>

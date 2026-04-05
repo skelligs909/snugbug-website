@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Fraunces, DM_Sans, Nunito } from "next/font/google";
 import "./globals.css";
+import { PostHogProvider } from "@/components/PostHogProvider";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -37,7 +38,7 @@ export default function RootLayout({
       className={`${fraunces.variable} ${dmSans.variable} ${nunito.variable}`}
     >
       <body className="font-body text-snugbug-dark bg-snugbug-cream antialiased">
-        {children}
+        <PostHogProvider>{children}</PostHogProvider>
       </body>
     </html>
   );

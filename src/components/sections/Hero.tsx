@@ -9,6 +9,7 @@ import {
 } from "framer-motion";
 import Ladybug from "@/components/Ladybug";
 import { Button } from "@/components/ui/Button";
+import { trackWaitlistSignup } from "@/lib/analytics";
 
 /* ------------------------------------------------------------------ */
 /*  Floating Cotton / Cloud Blob                                       */
@@ -76,12 +77,34 @@ export default function Hero() {
 
   const [email, setEmail] = useState("");
   const [submitted, setSubmitted] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
-  function handleSubmit(e: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (!email) return;
-    // TODO: wire up to your email capture endpoint
-    setSubmitted(true);
+    setSubmitting(true);
+    setError("");
+
+    try {
+      const res = await fetch("/api/waitlist", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Something went wrong");
+      }
+
+      trackWaitlistSignup(email);
+      setSubmitted(true);
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong");
+    } finally {
+      setSubmitting(false);
+    }
   }
 
   /* ---- Stagger animation variants ---- */
@@ -203,10 +226,13 @@ export default function Hero() {
                   placeholder="you@example.com"
                   className="flex-1 rounded-xl border border-snugbug-dark/10 bg-white px-4 py-3 font-body text-snugbug-dark shadow-sm outline-none transition-shadow placeholder:text-snugbug-dark/40 focus:ring-2 focus:ring-snugbug-sky"
                 />
-                <Button type="submit" variant="primary">
-                  Join the Waitlist
+                <Button type="submit" variant="primary" disabled={submitting}>
+                  {submitting ? "Joining..." : "Join the Waitlist"}
                 </Button>
               </form>
+            )}
+            {error && (
+              <p className="mt-2 font-body text-sm text-red-600">{error}</p>
             )}
           </motion.div>
         </motion.div>
