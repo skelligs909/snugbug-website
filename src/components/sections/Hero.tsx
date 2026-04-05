@@ -6,6 +6,7 @@ import {
   useScroll,
   useTransform,
   useReducedMotion,
+
 } from "framer-motion";
 import Ladybug from "@/components/Ladybug";
 import { Button } from "@/components/ui/Button";
@@ -58,6 +59,146 @@ function CottonCloud({ className }: { className?: string }) {
       <ellipse cx="150" cy="80" rx="40" ry="28" opacity="0.35" />
       <ellipse cx="95" cy="55" rx="45" ry="32" opacity="0.55" />
     </svg>
+  );
+}
+
+/* ------------------------------------------------------------------ */
+/*  Sky Scene — clouds part to reveal sun on signup                     */
+/* ------------------------------------------------------------------ */
+
+function SkyCloud({
+  className,
+  drift,
+  cleared,
+  delay = 0,
+}: {
+  className?: string;
+  drift: number;
+  cleared: boolean;
+  delay?: number;
+}) {
+  return (
+    <motion.svg
+      viewBox="0 0 200 100"
+      fill="white"
+      className={`absolute ${className ?? ""}`}
+      aria-hidden="true"
+      animate={
+        cleared
+          ? { x: drift, opacity: 0 }
+          : { x: [0, drift * 0.06, 0], opacity: 1 }
+      }
+      transition={
+        cleared
+          ? { duration: 1.8, ease: "easeInOut", delay }
+          : { duration: 6 + Math.abs(drift) * 0.02, repeat: Infinity, ease: "easeInOut" }
+      }
+    >
+      <ellipse cx="100" cy="60" rx="80" ry="30" opacity="0.9" />
+      <ellipse cx="65" cy="50" rx="55" ry="28" opacity="0.8" />
+      <ellipse cx="135" cy="50" rx="55" ry="28" opacity="0.8" />
+      <ellipse cx="100" cy="45" rx="60" ry="25" opacity="0.95" />
+    </motion.svg>
+  );
+}
+
+function Sun({ visible }: { visible: boolean }) {
+  return (
+    <motion.div
+      className="absolute left-1/2 -translate-x-1/2 top-6 sm:top-8"
+      initial={{ scale: 0.6, opacity: 0 }}
+      animate={
+        visible
+          ? { scale: 1, opacity: 1 }
+          : { scale: 0.6, opacity: 0 }
+      }
+      transition={{ duration: 1.4, ease: "easeOut", delay: visible ? 0.6 : 0 }}
+      aria-hidden="true"
+    >
+      {/* Glow */}
+      <div className="absolute inset-0 -m-6 rounded-full bg-yellow-300/30 blur-2xl" />
+      {/* Sun body */}
+      <div className="h-20 w-20 sm:h-24 sm:w-24 rounded-full bg-gradient-to-br from-yellow-300 via-yellow-400 to-amber-400 shadow-lg shadow-yellow-300/40" />
+      {/* Rays */}
+      <motion.div
+        className="absolute inset-0 -m-3"
+        animate={visible ? { rotate: 360 } : {}}
+        transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+      >
+        {[...Array(8)].map((_, i) => (
+          <div
+            key={i}
+            className="absolute left-1/2 top-1/2 h-2.5 w-8 -translate-x-1/2 -translate-y-1/2 rounded-full bg-yellow-300/50"
+            style={{ transform: `rotate(${i * 45}deg) translateX(48px)` }}
+          />
+        ))}
+      </motion.div>
+    </motion.div>
+  );
+}
+
+function SkyScene({ cleared }: { cleared: boolean }) {
+  return (
+    <div className="absolute inset-x-0 top-0 h-48 sm:h-56 overflow-hidden z-[5] pointer-events-none">
+      {/* Sky gradient background */}
+      <motion.div
+        className="absolute inset-0"
+        animate={
+          cleared
+            ? { background: "linear-gradient(to bottom, #87CEEB, #B8D4E8, transparent)" }
+            : { background: "linear-gradient(to bottom, #B8D4E8, #d0e4f0, transparent)" }
+        }
+        transition={{ duration: 1.5 }}
+      />
+
+      {/* Sun — hidden behind clouds initially */}
+      <Sun visible={cleared} />
+
+      {/* Clouds — drift apart when cleared */}
+      <SkyCloud
+        className="w-44 sm:w-56 top-2 left-[10%]"
+        drift={-300}
+        cleared={cleared}
+        delay={0}
+      />
+      <SkyCloud
+        className="w-56 sm:w-72 top-4 left-[28%]"
+        drift={-200}
+        cleared={cleared}
+        delay={0.1}
+      />
+      <SkyCloud
+        className="w-48 sm:w-64 top-0 left-[50%] -translate-x-1/2"
+        drift={100}
+        cleared={cleared}
+        delay={0.15}
+      />
+      <SkyCloud
+        className="w-44 sm:w-56 top-6 right-[25%]"
+        drift={250}
+        cleared={cleared}
+        delay={0.1}
+      />
+      <SkyCloud
+        className="w-40 sm:w-52 top-1 right-[5%]"
+        drift={350}
+        cleared={cleared}
+        delay={0}
+      />
+      {/* Extra lower wisps for density */}
+      <SkyCloud
+        className="w-36 sm:w-44 top-16 left-[20%] opacity-60"
+        drift={-250}
+        cleared={cleared}
+        delay={0.2}
+      />
+      <SkyCloud
+        className="w-32 sm:w-40 top-14 right-[15%] opacity-50"
+        drift={300}
+        cleared={cleared}
+        delay={0.25}
+      />
+    </div>
   );
 }
 
@@ -129,6 +270,11 @@ export default function Hero() {
       ref={sectionRef}
       className="relative min-h-screen overflow-hidden bg-snugbug-cream"
     >
+      {/* ============================================================ */}
+      {/*  Sky scene — clouds clear on signup to reveal sun              */}
+      {/* ============================================================ */}
+      <SkyScene cleared={submitted} />
+
       {/* ============================================================ */}
       {/*  Background blobs & clouds                                    */}
       {/* ============================================================ */}
