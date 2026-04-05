@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="600" height="300" viewBox="0 0 600 300" role="img" aria-label="SnugBug brand graphic">
+<rect width="600" height="300" rx="28" fill="#FFFDF9"/>
+<g transform="translate(130,54)">
+  <rect x="0" y="0" width="92" height="138" rx="38" fill="#F7F2E8" stroke="#222222" stroke-width="3"/>
+  <path d="M18 16 h56 M18 36 h56 M18 56 h56 M18 76 h56 M18 96 h56" stroke="#E7DCC6" stroke-width="6" opacity="0.8"/>
+  <path d="M44 138 q-2 24 -24 44" fill="none" stroke="#F7F2E8" stroke-width="7" stroke-linecap="round"/>
+</g>
+<g transform="translate(286,38)">
+  <text x="0" y="66" font-size="42" font-family="Trebuchet MS, Verdana, Arial, sans-serif" font-weight="700" fill="#222222">Natural cotton</text>
+  <text x="0" y="114" font-size="28" font-family="Trebuchet MS, Verdana, Arial, sans-serif" fill="#222222">Soft, gentle, and discreet</text>
+  <text x="0" y="158" font-size="28" font-family="Trebuchet MS, Verdana, Arial, sans-serif" fill="#E84C3D">single-side insert</text>
+</g>
+</svg>

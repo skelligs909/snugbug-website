@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="SnugBug brand graphic"><rect width="1200" height="360" fill="#FFFDF9"/>
+<g transform="translate(30,25)">
+  
+<g id="ladybug">
+  <ellipse cx="78" cy="72" rx="42" ry="34" fill="#E84C3D" stroke="#222222" stroke-width="5"/>
+  <ellipse cx="116" cy="74" rx="30" ry="30" fill="#222222" stroke="#222222" stroke-width="4"/>
+  <line x1="82" y1="42" x2="82" y2="102" stroke="#222222" stroke-width="4"/>
+  <circle cx="61" cy="59" r="5" fill="#222222"/><circle cx="58" cy="80" r="5" fill="#222222"/><circle cx="76" cy="88" r="5" fill="#222222"/>
+  <circle cx="95" cy="58" r="5" fill="#222222"/><circle cx="94" cy="89" r="5" fill="#222222"/>
+  <path d="M104 55 q8 -15 20 -17" fill="none" stroke="#222222" stroke-width="4" stroke-linecap="round"/>
+  <path d="M110 57 q16 -22 24 -23" fill="none" stroke="#222222" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="126" cy="36" r="4" fill="#222222"/><circle cx="136" cy="31" r="4" fill="#222222"/>
+  <circle cx="119" cy="64" r="3.5" fill="#FFFDF9"/><circle cx="128" cy="74" r="3.5" fill="#FFFDF9"/>
+  <path d="M103 89 q11 10 23 0" fill="none" stroke="#FFFDF9" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="44" cy="47" r="6" fill="#FFFDF9" opacity="0.55"/>
+</g>
+
+  <text x="170" y="110" font-size="108" font-family="Trebuchet MS, Verdana, Arial, sans-serif" font-weight="700" fill="#222222">Snug</text>
+  <text x="492" y="110" font-size="108" font-family="Trebuchet MS, Verdana, Arial, sans-serif" font-weight="700" fill="#E84C3D">Bug</text>
+  <line x1="655" y1="18" x2="662" y2="-10" stroke="#222222" stroke-width="5" stroke-linecap="round"/>
+  <line x1="684" y1="18" x2="684" y2="-14" stroke="#222222" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="662" cy="-13" r="4" fill="#222222"/><circle cx="684" cy="-17" r="4" fill="#222222"/>
+  <text x="170" y="190" font-size="44" font-family="Trebuchet MS, Verdana, Arial, sans-serif" fill="#222222">Sooth the stuffiness.</text>
+  <text x="625" y="190" font-size="44" font-family="Trebuchet MS, Verdana, Arial, sans-serif" font-weight="700" fill="#E84C3D">Stop the bleed.</text>
+  <path d="M922 180 c8 -12 21 -12 29 0 c-8 12 -21 12 -29 0z" fill="#E84C3D"/>
+  <path d="M16 130 q-45 25 -8 48 q40 22 5 40" fill="none" stroke="#222222" stroke-width="3" stroke-dasharray="5 8" opacity="0.7"/>
+</g>
+</svg>
