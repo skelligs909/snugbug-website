@@ -170,8 +170,8 @@ export default function Ladybug({
       </motion.g>
 
       {/* ---- Eyes ---- */}
-      <circle cx="119" cy="64" r="3.5" fill="#FFFDF9" />
-      <circle cx="128" cy="74" r="3.5" fill="#FFFDF9" />
+      <circle cx="110" cy="68" r="3.5" fill="#FFFDF9" />
+      <circle cx="124" cy="68" r="3.5" fill="#FFFDF9" />
 
       {/* ---- Smile ---- */}
       <path
